@@ -1,21 +1,13 @@
 //
-import shopify, { apiVersion } from "../shopify.server";
-import { ApiVersion } from "@shopify/shopify-api";
-// import { GraphqlClient } from '@shopify/shopify-api';
-// import { shopifyApi } from '@shopify/shopify-api';
+import { apiVersion } from "../shopify.server";
 import prisma from "../db.server";
 import {
   shopifyApi,
-  LATEST_API_VERSION,
-  GraphqlClient,
 } from "@shopify/shopify-api";
-import { shopifyApp } from "@shopify/shopify-app-remix/server";
 
 export async function authenticateFromAdmin(shop) {
-
   const SHOPIFY_API_SECRET = process.env.SHOPIFY_API_SECRET;
   const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
-  const SHOPIFY_API_VERSION = process.env.SHOPIFY_API_VERSION;
   shop = shop
     .toLowerCase()
     .replace(/^https:\/\//, "")
@@ -32,7 +24,6 @@ export async function authenticateFromAdmin(shop) {
   }
 
   try {
-
     const api = shopifyApi({
       apiKey: SHOPIFY_API_KEY,
       apiSecretKey: SHOPIFY_API_SECRET,

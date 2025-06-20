@@ -25,7 +25,7 @@ function PromotionBanner() {
     try {
       const token = await sessionToken.get();
       const response = await fetch(
-        "https://pj-older-boxing-proud.trycloudflare.com/api/reorder",
+        "https://chef-petersburg-efficiently-savage.trycloudflare.com/api/reorder",
         {
           method: "POST",
           headers: {

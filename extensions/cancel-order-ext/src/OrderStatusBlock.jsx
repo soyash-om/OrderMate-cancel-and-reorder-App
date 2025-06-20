@@ -49,7 +49,7 @@ function OrderCancelActionStatus() {
       console.log("token", token);
       // console.log("check function called");
       const sendReq = await fetch(
-        "https://pole-replies-sept-them.trycloudflare.com/api/cancelorder",
+        "https://chef-petersburg-efficiently-savage.trycloudflare.com/api/cancelorder",
         {
           method: "POST",
           headers: {

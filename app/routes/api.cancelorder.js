@@ -1,5 +1,4 @@
 import { cancelOrderHelper } from "../HelperApi/cancelOrderHelper";
-import { authenticate } from "../shopify.server";
 import { json } from "@remix-run/node";
 import jwt from "jsonwebtoken";
 import { authenticateFromAdmin } from "../utils/authenticateFromAdmin";

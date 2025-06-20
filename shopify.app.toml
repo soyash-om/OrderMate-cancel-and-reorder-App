@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "417bd30811793a065b27026b573f341e"
-application_url = "https://tablets-appraisal-treatment-relations.trycloudflare.com"
+application_url = "https://demo71.iitpl.com"
 embedded = true
 name = "order-reorder-cancel-app"
 handle = "order-reorder-cancel-app-3"
@@ -19,9 +19,9 @@ scopes = "read_orders,read_products,write_orders,write_products,read_customers,w
 
 [auth]
 redirect_urls = [
-  "https://tablets-appraisal-treatment-relations.trycloudflare.com/auth/callback",
-  "https://tablets-appraisal-treatment-relations.trycloudflare.com/auth/shopify/callback",
-  "https://tablets-appraisal-treatment-relations.trycloudflare.com/api/auth/callback"
+  "https://demo71.iitpl.com/auth/callback",
+  "https://demo71.iitpl.com/auth/shopify/callback",
+  "https://demo71.iitpl.com/api/auth/callback"
 ]
 
 [pos]
