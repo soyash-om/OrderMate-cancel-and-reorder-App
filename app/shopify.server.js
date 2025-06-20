@@ -26,12 +26,11 @@ const shopify = shopifyApp({
 });
 
 export default shopify;
-console.log("====shopify",shopify);
 
 export const apiVersion = ApiVersion.January25;
 export const addDocumentResponseHeaders = shopify.addDocumentResponseHeaders;
 export const authenticate = shopify.authenticate;
-console.log("authenticate======",authenticate);
+
 
 export const unauthenticated = shopify.unauthenticated;
 export const login = shopify.login;
