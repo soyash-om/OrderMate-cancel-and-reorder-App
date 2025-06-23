@@ -27,6 +27,7 @@ function OrderCancelActionStatus() {
   const orderId = order?.id;
 
   const { sessionToken } = useApi();
+  console.log("session token new ", sessionToken);
 
   const [clickToCancel, setclickToCancel] = useState(false);
   const [selectReason, setSelectReason] = useState("CUSTOMER");
@@ -44,35 +45,36 @@ function OrderCancelActionStatus() {
       selectReason,
     );
     try {
-      // console.log("check token");
       const token = await sessionToken.get();
       console.log("token", token);
-      // console.log("check function called");
-      const sendReq = await fetch("https://demo71.iitpl.com/api/cancelorder", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const sendReq = await fetch(
+        "https://demo71.iitpl.com/api/cancelorder",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            orderId: orderId,
+            cancelreason: selectReason,
+          }),
+          credentials: "include",
         },
-        body: JSON.stringify({
-          orderId: orderId,
-          cancelreason: selectReason,
-        }),
-        credentials: "include",
-      });
+      );
 
       const res = await sendReq.json();
-      ui.toast.show("order canceld please refresh the page ");
+      ui.toast.show("order canceled please refresh the page ");
 
       if (res.success) {
         // ui.toast.show("Request sent successfully");
         console.log("success");
       } else {
-        // ui.toast.show("Request failed");
         console.log("fails");
       }
     } catch (error) {
-      console.log("eroor is ", error);
+      console.log("error is ", error);
+      ui.toast.show("Request failed");
     }
   };
   return (

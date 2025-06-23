@@ -1,9 +1,7 @@
 //
 import { apiVersion } from "../shopify.server";
 import prisma from "../db.server";
-import {
-  shopifyApi,
-} from "@shopify/shopify-api";
+import { shopifyApi } from "@shopify/shopify-api";
 
 export async function authenticateFromAdmin(shop) {
   const SHOPIFY_API_SECRET = process.env.SHOPIFY_API_SECRET;

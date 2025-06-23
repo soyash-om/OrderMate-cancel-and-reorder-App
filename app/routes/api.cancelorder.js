@@ -21,16 +21,19 @@ export const loader = async ({ request }) => {
 };
 
 export const action = async ({ request }) => {
+  console.log("came inside cancel order");
   const SHOPIFY_API_SECRET = process.env.SHOPIFY_API_SECRET;
 
   try {
     const authHeader = request.headers.get("Authorization");
+    console.log("check token for auth", authHeader);
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const token = authHeader.replace("Bearer ", "");
+    console.log("token inside cancelorder", token);
     const payload = jwt.verify(token, SHOPIFY_API_SECRET, {
       algorithms: ["HS256"],
     });
@@ -39,7 +42,7 @@ export const action = async ({ request }) => {
 
     const { admin } = await authenticateFromAdmin(shopDomain);
     if (!admin) {
-      console.log("Admin not returned from authenticateFromAdmin");
+      console.log("Request not authenticate From Admin");
       return json({ error: "Admin session not found" }, { status: 403 });
     }
 
