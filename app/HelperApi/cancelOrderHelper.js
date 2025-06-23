@@ -18,15 +18,17 @@ orderCancel(notifyCustomer: $notifyCustomer, orderId: $orderId, reason: $reason,
 }
 }
         `;
-    const variables = {
-      notifyCustomer: false,
-      orderId: orderId,
-      reason: cancelreason,
-      refund: true,
-      restock: true,
-      staffNote: "",
-    };
-    const response = await admin.client.request(query, variables);
+
+    const response = await admin.client.request(query, {
+      variables: {
+        notifyCustomer: false,
+        orderId: orderId,
+        reason: cancelreason,
+        refund: true,
+        restock: true,
+        staffNote: "",
+      },
+    });
 
     return json({ success: true });
   } catch (error) {
