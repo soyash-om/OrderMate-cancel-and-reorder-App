@@ -48,21 +48,18 @@ function OrderCancelActionStatus() {
       const token = await sessionToken.get();
       console.log("token", token);
       // console.log("check function called");
-      const sendReq = await fetch(
-        "https://chef-petersburg-efficiently-savage.trycloudflare.com/api/cancelorder",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            orderId: orderId,
-            cancelreason: selectReason,
-          }),
-          credentials: "include",
+      const sendReq = await fetch("https://demo71.iitpl.com/api/cancelorder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: JSON.stringify({
+          orderId: orderId,
+          cancelreason: selectReason,
+        }),
+        credentials: "include",
+      });
 
       const res = await sendReq.json();
       ui.toast.show("order canceld please refresh the page ");

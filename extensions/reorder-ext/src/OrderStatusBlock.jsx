@@ -24,18 +24,15 @@ function PromotionBanner() {
 
     try {
       const token = await sessionToken.get();
-      const response = await fetch(
-        "https://chef-petersburg-efficiently-savage.trycloudflare.com/api/reorder",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          credentials: "include",
-          body: JSON.stringify({ orderId: orderID }),
+      const response = await fetch("https://demo71.iitpl.com/api/reorder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      );
+        credentials: "include",
+        body: JSON.stringify({ orderId: orderID }),
+      });
 
       const data = await response.json();
       ui.toast.show("Reorderd successfuully");
