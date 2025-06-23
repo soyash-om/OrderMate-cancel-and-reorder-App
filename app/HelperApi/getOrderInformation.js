@@ -45,8 +45,8 @@ export const getOrderInformation = async (admin, orderId) => {
       }`;
 
     const response = await admin.client.request(query);
+    console.log("response on order data get", response);
 
-  
     return response.data;
   } catch (error) {
     console.error("Failed to fetch order information:", error);

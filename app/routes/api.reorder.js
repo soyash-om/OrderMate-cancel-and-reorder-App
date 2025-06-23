@@ -52,6 +52,7 @@ export const action = async ({ request }) => {
     }
 
     const orderData = await getOrderInformation(admin, orderId);
+    console.log("admin-->",admin, "--->",orderId, orderData)
 
     const placeNewOrder = await reorderHelper(admin, orderData);
 

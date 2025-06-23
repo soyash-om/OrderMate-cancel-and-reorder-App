@@ -46,8 +46,6 @@ export const reorderHelper = async (admin, orderData) => {
         }
       }
     }`;
-    console.log(orderData.order.customer.email);
-    console.log(orderData.order.billingAddress.address1);
     const response = await admin.client.request(mutation, {
       variables: {
         order: {
