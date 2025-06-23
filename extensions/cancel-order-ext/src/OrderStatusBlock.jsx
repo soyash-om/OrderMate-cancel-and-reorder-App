@@ -47,7 +47,7 @@ function OrderCancelActionStatus() {
     try {
       const token = await sessionToken.get();
       console.log("token", token);
-      const sendReq = await fetch("https://demo71.iitpl.com/api/cancelorder", {
+      const sendReq = await fetch("https://demo71.iitpl.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
