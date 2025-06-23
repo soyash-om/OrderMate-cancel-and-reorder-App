@@ -6,7 +6,6 @@ import { shopifyApi } from "@shopify/shopify-api";
 export async function authenticateFromAdmin(shop) {
   const SHOPIFY_API_SECRET = process.env.SHOPIFY_API_SECRET;
   const SHOPIFY_API_KEY = process.env.SHOPIFY_API_KEY;
-  console.log("shopify api key", SHOPIFY_API_KEY, SHOPIFY_API_SECRET);
   shop = shop
     .toLowerCase()
     .replace(/^https:\/\//, "")
@@ -18,12 +17,12 @@ export async function authenticateFromAdmin(shop) {
     },
   });
 
-  console.log("session access token", session, session.accessToken);
   if (!session || !session.accessToken) {
     throw new Error("No valid session found for this shop");
   }
 
   try {
+    
     const api = shopifyApi({
       apiKey: SHOPIFY_API_KEY,
       apiSecretKey: SHOPIFY_API_SECRET,
