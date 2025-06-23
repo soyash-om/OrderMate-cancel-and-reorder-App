@@ -17,7 +17,7 @@ export const loader = async ({ request }) => {
       },
     });
   }
-  return new Response("Method Not Allowed", { status: 405 });
+  return new Response("Method Not Alloweds", { status: 405 });
 };
 
 export const action = async ({ request }) => {
