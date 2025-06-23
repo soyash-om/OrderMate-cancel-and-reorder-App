@@ -24,7 +24,7 @@ function PromotionBanner() {
 
     try {
       const token = await sessionToken.get();
-      const response = await fetch("https://demo71.iitpl.com/api", {
+      const response = await fetch("https://demo71.iitpl.com/api/reorder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
