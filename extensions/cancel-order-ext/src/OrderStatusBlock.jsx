@@ -47,21 +47,18 @@ function OrderCancelActionStatus() {
     try {
       const token = await sessionToken.get();
       console.log("token", token);
-      const sendReq = await fetch(
-        "https://demo71.iitpl.com/api/cancelorder",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            orderId: orderId,
-            cancelreason: selectReason,
-          }),
-          credentials: "include",
+      const sendReq = await fetch("http://localhost:3001/api/cancelorder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: JSON.stringify({
+          orderId: orderId,
+          cancelreason: selectReason,
+        }),
+        credentials: "include",
+      });
 
       const res = await sendReq.json();
       ui.toast.show("order canceled please refresh the page ");
