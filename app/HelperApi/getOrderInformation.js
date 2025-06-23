@@ -43,7 +43,7 @@ export const getOrderInformation = async (admin, orderId) => {
           }
         }
       }`;
-
+    console.log("query", query);
     const response = await admin.client.request(query);
     console.log("response on order data get", response);
 
